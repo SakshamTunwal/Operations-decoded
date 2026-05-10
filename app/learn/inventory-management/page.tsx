@@ -86,7 +86,7 @@ function Toast({ msg, type, onClose }: { msg: string; type: "success" | "warning
     >
       <div className="px-4 py-3 flex items-start gap-2">
         <p className="text-xs font-semibold flex-1">{msg}</p>
-        <button suppressHydrationWarning onClick={onClose} className="cursor-pointer flex-shrink-0 opacity-60 hover:opacity-100">
+        <button suppressHydrationWarning onClick={onClose} aria-label="Close" className="cursor-pointer flex-shrink-0 opacity-60 hover:opacity-100">
           <X size={14} />
         </button>
       </div>
@@ -122,7 +122,7 @@ function GlossaryDrawer({ terms, open, onClose }: { terms: GlossaryTerm[]; open:
                 <h3 className="font-bold text-[#1A1A1A]" style={{ fontFamily: "var(--font-syne),sans-serif" }}>Glossary</h3>
                 <p className="text-[10px] text-[#9CA3AF]">{unlocked.length}/{terms.length} terms unlocked</p>
               </div>
-              <button suppressHydrationWarning onClick={onClose} className="p-1 rounded-lg hover:bg-[#F9FAFB] cursor-pointer">
+              <button suppressHydrationWarning onClick={onClose} aria-label="Close" className="p-1 rounded-lg hover:bg-[#F9FAFB] cursor-pointer">
                 <X size={18} className="text-[#6B7280]" />
               </button>
             </div>
@@ -618,7 +618,7 @@ export default function InventoryManagementPage() {
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <a href="/" className="text-[10px] text-[#9CA3AF] hover:text-[#10B981] transition-colors">← Home</a>
+                <a href="/learn" className="text-[10px] text-[#9CA3AF] hover:text-[#10B981] transition-colors">← All Modules</a>
                 <span className="text-[#E8E4DD]">/</span>
                 <span className="text-[10px] text-[#9CA3AF]">Module 7</span>
               </div>

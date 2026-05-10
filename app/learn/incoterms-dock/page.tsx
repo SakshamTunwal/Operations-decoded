@@ -80,14 +80,14 @@ function Toast({ msg, type, onClose }: { msg: string; type: "success" | "warning
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: "calc(100% + 2rem)", opacity: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 28 }}
-      className={`fixed top-6 right-4 z-[60] max-w-sm rounded-xl border shadow-xl overflow-hidden flex flex-col ${bg}`}
+      className={`fixed top-6 right-4 z-[60] w-[calc(100vw-2rem)] max-w-sm rounded-xl border shadow-xl overflow-hidden flex flex-col ${bg}`}
     >
       <div className="flex items-start gap-3 px-4 py-3">
         <span className="mt-0.5 flex-shrink-0">
           {type === "success" ? <CheckCircle2 size={15} /> : <AlertTriangle size={15} />}
         </span>
         <p className="text-xs leading-relaxed flex-1">{msg}</p>
-        <button suppressHydrationWarning onClick={onClose} className="opacity-60 hover:opacity-100 flex-shrink-0 cursor-pointer"><X size={13} /></button>
+        <button suppressHydrationWarning onClick={onClose} aria-label="Close" className="opacity-60 hover:opacity-100 flex-shrink-0 cursor-pointer"><X size={13} /></button>
       </div>
       <motion.div
         initial={{ scaleX: 1 }}
@@ -126,7 +126,7 @@ function GlossaryDrawer({ terms, open, onClose }: { terms: GlossaryTerm[]; open:
                   {unlockedTerms.length}/{terms.length}
                 </span>
               </div>
-              <button suppressHydrationWarning onClick={onClose} className="text-[#9CA3AF] hover:text-[#1A1A1A] cursor-pointer"><X size={16} /></button>
+              <button suppressHydrationWarning onClick={onClose} aria-label="Close" className="text-[#9CA3AF] hover:text-[#1A1A1A] cursor-pointer"><X size={16} /></button>
             </div>
             <div className="flex-1 overflow-y-auto px-5 py-4 flex flex-col gap-3">
               {terms.map((term, i) => (

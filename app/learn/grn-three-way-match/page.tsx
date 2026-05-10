@@ -90,14 +90,14 @@ function Toast({
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: "calc(100% + 2rem)", opacity: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 28 }}
-      className={`fixed top-6 right-4 z-[60] max-w-sm rounded-xl border shadow-xl overflow-hidden flex flex-col ${bg}`}
+      className={`fixed top-6 right-4 z-[60] w-[calc(100vw-2rem)] max-w-sm rounded-xl border shadow-xl overflow-hidden flex flex-col ${bg}`}
     >
       <div className="flex items-start gap-3 px-4 py-3">
         <span className="mt-0.5 flex-shrink-0">
           {type === "success" ? <CheckCircle2 size={15} /> : <AlertTriangle size={15} />}
         </span>
         <p className="text-xs leading-relaxed flex-1">{msg}</p>
-        <button onClick={onClose} suppressHydrationWarning className="opacity-60 hover:opacity-100 flex-shrink-0 cursor-pointer">
+        <button onClick={onClose} suppressHydrationWarning aria-label="Close" className="opacity-60 hover:opacity-100 flex-shrink-0 cursor-pointer">
           <X size={13} />
         </button>
       </div>
@@ -142,7 +142,7 @@ function GlossaryDrawer({
                 <span className="text-xs text-[#D97706] bg-[#FEF3C7] px-2 py-0.5 rounded-full font-semibold">
                   {terms.filter((t) => t.unlocked).length}/{terms.length}
                 </span>
-                <button onClick={onClose} suppressHydrationWarning className="p-1 text-[#9CA3AF] hover:text-[#1A1A1A] cursor-pointer">
+                <button onClick={onClose} suppressHydrationWarning aria-label="Close" className="p-1 text-[#9CA3AF] hover:text-[#1A1A1A] cursor-pointer">
                   <X size={16} />
                 </button>
               </div>

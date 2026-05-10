@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'>
+  <rect width='1200' height='630' fill='#FAFAF7'/>
+  <rect x='0' y='0' width='1200' height='8' fill='#f59e0b'/>
+  <rect x='560' y='274' width='80' height='80' rx='12' fill='#f59e0b'/>
+  <text x='600' y='325' text-anchor='middle' font-size='40' font-weight='800' fill='white' font-family='sans-serif'>O</text>
+  <text x='600' y='395' text-anchor='middle' font-size='40' font-weight='800' fill='#1A1A1A' font-family='Georgia,serif'>Operations Decoded</text>
+  <text x='600' y='445' text-anchor='middle' font-size='24' fill='#6B7280' font-family='sans-serif'>Learn Supply Chain &amp; ERP by Doing</text>
+  <text x='600' y='490' text-anchor='middle' font-size='18' fill='#9CA3AF' font-family='sans-serif'>9 Interactive Modules · Free to Start</text>
+</svg>

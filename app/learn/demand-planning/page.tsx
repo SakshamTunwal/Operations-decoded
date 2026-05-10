@@ -89,7 +89,7 @@ function Toast({ msg, type, onClose }: { msg: string; type: "success" | "warning
     >
       <div className="px-4 py-3 flex items-start gap-2">
         <p className="text-xs font-semibold flex-1">{msg}</p>
-        <button suppressHydrationWarning onClick={onClose} className="cursor-pointer flex-shrink-0 opacity-60 hover:opacity-100">
+        <button suppressHydrationWarning onClick={onClose} aria-label="Close" className="cursor-pointer flex-shrink-0 opacity-60 hover:opacity-100">
           <X size={14} />
         </button>
       </div>
@@ -654,6 +654,7 @@ export default function DemandPlanningPage() {
         <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <div>
+              <a href="/learn" className="text-[10px] text-[#9CA3AF] hover:text-[#D97706] transition-colors flex items-center gap-1 mb-1">← All Modules</a>
               <p className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-widest">Module 8 — Demand Planning</p>
               <h1 className="text-xl font-black text-[#1A1A1A]" style={{ fontFamily: "var(--font-syne),sans-serif" }}>
                 The Number Everyone Argues About

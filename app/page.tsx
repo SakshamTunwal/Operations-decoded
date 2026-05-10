@@ -80,7 +80,7 @@ const navLinks = [
   { label: "Learn",     href: "#curriculum" },
   { label: "Platform",  href: "#platform" },
   { label: "Process",   href: "#process" },
-  { label: "Community", href: "#forum" },
+  { label: "Community", href: "/community" },
 ];
 
 function Navbar() {
@@ -185,7 +185,7 @@ function Navbar() {
 
 const heroMetrics = [
   { icon: Users,      value: "500+",   label: "Professionals Learning" },
-  { icon: BookMarked, value: "15+",    label: "Interactive Modules" },
+  { icon: BookMarked, value: "10",     label: "Interactive Modules" },
   { icon: Layers,     value: "3",      label: "Industry Domains" },
   { icon: Unlock,     value: "100%",   label: "Free to Start" },
 ];
@@ -231,7 +231,7 @@ function Hero() {
             transition={{ duration: 0.55, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="text-[#6B7280] text-lg leading-relaxed max-w-lg mb-8"
           >
-            The only interactive platform where ops professionals and industrial SME owners learn how supply chains actually break — and how to fix them. No theory. No fluff.
+            The only interactive platform where ops professionals and industrial SME owners learn how supply chains actually break and how to fix them. No theory. No fluff.
           </motion.p>
 
           {/* Metric badges */}
@@ -362,9 +362,9 @@ function Hero() {
 // ─── Stats Bar ────────────────────────────────────────────────────────────────
 
 const stats = [
-  { icon: BookMarked,   value: "15+",           label: "Modules" },
-  { icon: Layers,       value: "5",             label: "Domain Areas" },
-  { icon: MousePointer, value: "Interactive",   label: "Scenarios" },
+  { icon: BookMarked,   value: "10",            label: "Modules" },
+  { icon: Layers,       value: "3",             label: "Domain Areas" },
+  { icon: MousePointer, value: "20+",           label: "Interactive Scenarios" },
   { icon: Unlock,       value: "Zero",          label: "Prerequisites" },
 ];
 
@@ -433,7 +433,7 @@ const curriculumGroups = [
     icon: Package,
     count: 5,
     chips: [
-      { name: "Purchase Orders", live: true, desc: "Understand the full purchase order lifecycle — creation, approval, dispatch and acknowledgement.", difficulty: "Beginner" },
+      { name: "Purchase Orders", live: true, href: "/learn/procure-to-pay", desc: "Understand the full purchase order lifecycle — creation, approval, dispatch and acknowledgement.", difficulty: "Beginner" },
       { name: "Sales Invoices", live: false, desc: "Trace an invoice from issuance to payment, including dispute handling.", difficulty: "Beginner" },
       { name: "Inventory Management", live: false, desc: "Learn reorder points, safety stock, and ABC analysis hands-on.", difficulty: "Intermediate" },
       { name: "Safety Stock Calculation", live: false, desc: "Calculate safety stock buffers based on demand variability and lead time.", difficulty: "Intermediate" },
@@ -448,7 +448,7 @@ const curriculumGroups = [
       { name: "Demand Forecasting", live: false, desc: "Apply time-series techniques to generate accurate demand forecasts.", difficulty: "Intermediate" },
       { name: "Bullwhip Effect", live: false, desc: "See how small demand changes amplify upstream. Interactive simulation.", difficulty: "Intermediate" },
       { name: "Lead Time Optimization", live: false, desc: "Identify and reduce bottlenecks across your supplier network.", difficulty: "Advanced" },
-      { name: "Last Mile Delivery", live: false, desc: "Understand last-mile trade-offs between cost, speed, and reliability.", difficulty: "Intermediate" },
+      { name: "Last Mile Delivery", live: true, href: "/learn/last-mile", desc: "Maya Chatterjee transforms delivery operations — true cost modelling, POD recovery, and SLA negotiation.", difficulty: "Intermediate" },
       { name: "3PL vs In-house", live: false, desc: "Decision framework for outsourcing logistics vs. keeping it internal.", difficulty: "Beginner" },
       { name: "Cost of Carrying Inventory", live: false, desc: "Calculate true holding costs including capital, storage, and obsolescence.", difficulty: "Intermediate" },
     ],
@@ -460,7 +460,7 @@ const curriculumGroups = [
     chips: [
       { name: "ERP Systems", live: false, desc: "How ERP connects procurement, finance, and operations in one system.", difficulty: "Beginner" },
       { name: "MRP Logic", live: false, desc: "Step through Material Requirements Planning calculations with real data.", difficulty: "Advanced" },
-      { name: "Warehouse Operations", live: false, desc: "Inbound, putaway, picking, packing, outbound — the full WMS flow.", difficulty: "Intermediate" },
+      { name: "Warehouse Operations", live: true, href: "/learn/concrete-floors", desc: "ABC slotting, zone picking, WMS accuracy, error reduction, and surviving a flash sale.", difficulty: "Intermediate" },
       { name: "Supplier Management", live: false, desc: "Supplier scorecarding, audits, and relationship management.", difficulty: "Intermediate" },
     ],
   },
@@ -536,8 +536,8 @@ function Curriculum() {
                                 <p className="text-xs text-[#4B5563] leading-relaxed mb-3">{chip.desc}</p>
                                 <div className="flex items-center justify-between">
                                   <span className={`text-[10px] font-semibold border px-2 py-0.5 rounded-full ${difficultyColor[chip.difficulty]}`}>{chip.difficulty}</span>
-                                  {chip.live ? (
-                                    <a href="/learn/procure-to-pay" className="text-xs text-[#D97706] hover:text-[#f59e0b] font-semibold transition-colors">Start Module →</a>
+                                  {chip.live && chip.href ? (
+                                    <a href={chip.href} className="text-xs text-[#D97706] hover:text-[#f59e0b] font-semibold transition-colors">Start Module →</a>
                                   ) : (
                                     <span className="text-[10px] text-[#9CA3AF]">Coming soon</span>
                                   )}
@@ -938,7 +938,10 @@ function FeaturedModule() {
               <span className="text-lg">📊</span>
             </div>
             <div>
-              <p className="text-[9px] font-bold text-[#9CA3AF] uppercase tracking-widest">Module 7</p>
+                  <div className="flex items-center gap-2 mb-0.5">
+                <p className="text-[9px] font-bold text-[#9CA3AF] uppercase tracking-widest">Module 7 — Now Available</p>
+                <span className="text-[8px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full px-2 py-0.5">NEW</span>
+              </div>
               <p className="text-sm font-bold text-[#1A1A1A]" style={{ fontFamily: "var(--font-syne),sans-serif" }}>
                 Counting What Counts — Inventory Management
               </p>
@@ -949,7 +952,7 @@ function FeaturedModule() {
             href="/learn/inventory-management"
             className="flex-shrink-0 px-5 py-2.5 bg-[#10B981] text-white text-xs font-bold rounded-xl hover:bg-[#059669] transition-colors whitespace-nowrap"
           >
-            Start →
+            Start Module 7 →
           </a>
         </motion.div>
 
@@ -980,6 +983,66 @@ function FeaturedModule() {
             className="flex-shrink-0 px-5 py-2.5 bg-[#3B82F6] text-white text-xs font-bold rounded-xl hover:bg-[#2563EB] transition-colors whitespace-nowrap"
           >
             Start Module 8 →
+          </a>
+        </motion.div>
+
+        {/* Module 9 teaser */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 1.1 }}
+          className="mt-4 p-5 bg-white border border-[#E8E4DD] rounded-2xl shadow-sm flex items-center justify-between gap-4"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-[#FFF7ED] border border-orange-200 flex items-center justify-center flex-shrink-0">
+              <span className="text-lg">🏭</span>
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-0.5">
+                <p className="text-[9px] font-bold text-[#9CA3AF] uppercase tracking-widest">Module 9 — Now Available</p>
+                <span className="text-[8px] font-bold bg-orange-50 text-orange-700 border border-orange-200 rounded-full px-2 py-0.5">NEW</span>
+              </div>
+              <p className="text-sm font-bold text-[#1A1A1A]" style={{ fontFamily: "var(--font-syne),sans-serif" }}>
+                Concrete Floors — Warehouse Operations
+              </p>
+              <p className="text-[10px] text-[#9CA3AF] mt-0.5">Andre &amp; Fatima · 7 steps · Layout → Receiving → Pick → WMS → Errors → Returns → Flash Sale</p>
+            </div>
+          </div>
+          <a
+            href="/learn/concrete-floors"
+            className="flex-shrink-0 px-5 py-2.5 bg-[#EA580C] text-white text-xs font-bold rounded-xl hover:bg-[#C2410C] transition-colors whitespace-nowrap"
+          >
+            Start Module 9 →
+          </a>
+        </motion.div>
+
+        {/* Module 10 teaser */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 1.2 }}
+          className="mt-4 p-5 bg-white border border-[#E8E4DD] rounded-2xl shadow-sm flex items-center justify-between gap-4"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-[#F0FDFA] border border-teal-200 flex items-center justify-center flex-shrink-0">
+              <span className="text-lg">🚛</span>
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-0.5">
+                <p className="text-[9px] font-bold text-[#9CA3AF] uppercase tracking-widest">Module 10 — Now Available</p>
+                <span className="text-[8px] font-bold bg-teal-50 text-teal-700 border border-teal-200 rounded-full px-2 py-0.5">NEW</span>
+              </div>
+              <p className="text-sm font-bold text-[#1A1A1A]" style={{ fontFamily: "var(--font-syne),sans-serif" }}>
+                The Last Mile — Logistics &amp; Delivery
+              </p>
+              <p className="text-[10px] text-[#9CA3AF] mt-0.5">Maya Chatterjee · 7 steps · Modes → True Cost → Scorecard → POD Crisis → Claims → 3PL Decision → SLA</p>
+            </div>
+          </div>
+          <a
+            href="/learn/last-mile"
+            className="flex-shrink-0 px-5 py-2.5 bg-[#0F766E] text-white text-xs font-bold rounded-xl hover:bg-[#0D6A63] transition-colors whitespace-nowrap"
+          >
+            Start Module 10 →
           </a>
         </motion.div>
       </div>
@@ -1051,7 +1114,7 @@ function Process() {
         <motion.div initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.5 }}
           className="flex justify-center"
         >
-          <a href="/learn/procure-to-pay"
+          <a href="/learn"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#1A1A1A] text-white text-sm font-bold rounded hover:bg-[#292524] hover:shadow-lg hover:scale-[1.02] transition-all duration-200 cursor-pointer"
           >
             Ready to start? Pick Your First Module →
@@ -1117,30 +1180,31 @@ function TestimonialCarousel() {
         </div>
 
         {/* Desktop: 3 cards */}
-        <div className="hidden md:grid grid-cols-3 gap-4">
-          <AnimatePresence>
-            {visible.map((idx, pos) => {
-              const t = testimonials[idx];
-              return (
-                <motion.article key={`${idx}-${pos}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.35, delay: pos * 0.06 }}
-                  className="bg-white border border-[#E8E4DD] shadow-sm rounded-xl p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="flex gap-0.5">{[1,2,3,4,5].map((s) => <Star key={s} size={12} className="text-[#f59e0b] fill-[#f59e0b]" />)}</div>
-                  <p className="text-[#4B5563] text-sm leading-relaxed italic flex-1">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="pt-4 border-t border-[#E8E4DD] flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#FEF3C7] border border-[#f59e0b]/30 flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-[#D97706]">{t.initials}</span>
-                    </div>
-                    <div>
-                      <p className="text-[#1A1A1A] font-semibold text-sm" style={{ fontFamily: "var(--font-syne),sans-serif" }}>{t.name}</p>
-                      <p className="text-[#6B7280] text-[10px]">{t.title}{t.company ? `, ${t.company}` : ""}</p>
-                    </div>
+        <div className="hidden md:grid grid-cols-3 gap-4 items-start">
+          {visible.map((idx, pos) => {
+            const t = testimonials[idx];
+            return (
+              <motion.article
+                key={idx}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: pos * 0.06 }}
+                className="bg-white border border-[#E8E4DD] shadow-sm rounded-xl p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex gap-0.5">{[1,2,3,4,5].map((s) => <Star key={s} size={12} className="text-[#f59e0b] fill-[#f59e0b]" />)}</div>
+                <p className="text-[#4B5563] text-sm leading-relaxed italic flex-1">&ldquo;{t.quote}&rdquo;</p>
+                <div className="pt-4 border-t border-[#E8E4DD] flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-[#FEF3C7] border border-[#f59e0b]/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-[#D97706]">{t.initials}</span>
                   </div>
-                </motion.article>
-              );
-            })}
-          </AnimatePresence>
+                  <div>
+                    <p className="text-[#1A1A1A] font-semibold text-sm" style={{ fontFamily: "var(--font-syne),sans-serif" }}>{t.name}</p>
+                    <p className="text-[#6B7280] text-[10px]">{t.title}{t.company ? `, ${t.company}` : ""}</p>
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
 
         {/* Mobile: single card */}
@@ -1164,8 +1228,8 @@ function TestimonialCarousel() {
             </motion.article>
           </AnimatePresence>
           <div className="flex justify-center gap-3 mt-4">
-            <button suppressHydrationWarning onClick={prev} className="w-8 h-8 rounded-full border border-[#E8E4DD] bg-white flex items-center justify-center cursor-pointer"><ChevronLeft size={14} /></button>
-            <button suppressHydrationWarning onClick={next} className="w-8 h-8 rounded-full border border-[#E8E4DD] bg-white flex items-center justify-center cursor-pointer"><ChevronRight size={14} /></button>
+            <button suppressHydrationWarning onClick={prev} aria-label="Previous testimonial" className="w-8 h-8 rounded-full border border-[#E8E4DD] bg-white flex items-center justify-center cursor-pointer"><ChevronLeft size={14} /></button>
+            <button suppressHydrationWarning onClick={next} aria-label="Next testimonial" className="w-8 h-8 rounded-full border border-[#E8E4DD] bg-white flex items-center justify-center cursor-pointer"><ChevronRight size={14} /></button>
           </div>
         </div>
 
@@ -1448,7 +1512,7 @@ function BackToTop() {
 // ─── JSON-LD Structured Data ──────────────────────────────────────────────────
 
 function StructuredData() {
-  const data = {
+  const orgData = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Operations Decoded",
@@ -1461,7 +1525,24 @@ function StructuredData() {
       "itemListElement": [{ "@type": "Course", "name": "Procure-to-Pay", "description": "Interactive end-to-end procure-to-pay simulation", "educationalLevel": "Beginner" }],
     },
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is Operations Decoded really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The core learning modules are completely free. We believe operations knowledge shouldn't be gatekept. Premium features like certifications and team dashboards will be available later." } },
+      { "@type": "Question", "name": "Who is this platform for?", "acceptedAnswer": { "@type": "Answer", "text": "Operations professionals, supply chain managers, procurement teams, industrial SME owners, ERP consultants, and MBA students who want practical, hands-on understanding of how supply chains actually work." } },
+      { "@type": "Question", "name": "How is this different from a textbook or YouTube course?", "acceptedAnswer": { "@type": "Answer", "text": "We don't lecture. Every module is interactive — you click through real scenarios, make decisions, and see consequences. It's the closest thing to on-the-job experience without the job." } },
+      { "@type": "Question", "name": "What topics are covered?", "acceptedAnswer": { "@type": "Answer", "text": "We cover the full operations spectrum: procurement (P2P), inventory management, demand forecasting, ERP systems, warehouse operations, supplier management, and more. New modules are added regularly." } },
+      { "@type": "Question", "name": "Do I need any prior experience?", "acceptedAnswer": { "@type": "Answer", "text": "No. Modules are tagged by difficulty level. Start with Beginner modules if you're new, or jump straight to Advanced if you're experienced." } },
+      { "@type": "Question", "name": "Can I use this for team training?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Many teams use our modules for onboarding and upskilling. Team features with progress tracking are coming soon." } },
+    ],
+  };
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }} />
+    </>
+  );
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────

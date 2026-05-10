@@ -304,7 +304,7 @@ export function SceneWrapper({ step, children }: SceneWrapperProps) {
   const Bg = SCENE_BACKGROUNDS[step] ?? Scene1Bg;
 
   return (
-    <div className="relative rounded-2xl overflow-hidden min-h-[340px] border border-[#E8E4DD] shadow-sm">
+    <div className="relative isolate rounded-2xl overflow-hidden min-h-[340px] border border-[#E8E4DD] shadow-sm" style={{ zIndex: 0 }}>
       <Bg />
       <LocationHeaderOverlay step={step} />
       <div className="relative z-10 p-6 md:p-8">

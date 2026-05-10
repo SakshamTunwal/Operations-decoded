@@ -307,10 +307,10 @@ export function DynamicScorecard({
           Try Again ↺
         </button>
         <a
-          href="/learn/demand-planning"
+          href="/learn/concrete-floors"
           className="px-6 py-3 bg-[#3B82F6] text-white text-sm font-bold rounded-xl hover:bg-[#2563EB] transition-colors"
         >
-          Coming Soon →
+          Next: Warehouse Operations →
         </a>
       </div>
     </div>
