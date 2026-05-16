@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit:crawl": "playwright test",
+    "audit:lighthouse": "lhci autorun",
+    "audit:report": "node scripts/generate-report.js",
+    "audit": "npm run audit:crawl && npm run audit:lighthouse && npm run audit:report"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
@@ -16,12 +20,16 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chalk": "^5.6.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
+    "globby": "^16.2.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -1,0 +1,218 @@
+[
+  {
+    "url": "https://operationsdecoded.com/",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com--2026_05_16_18_52_13.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com--2026_05_16_18_52_13.report.json",
+    "summary": {
+      "performance": 0.95,
+      "accessibility": 0.91,
+      "best-practices": 1,
+      "seo": 0.91
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com--2026_05_16_18_52_42.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com--2026_05_16_18_52_42.report.json",
+    "summary": {
+      "performance": 0.98,
+      "accessibility": 0.91,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/about",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-about-2026_05_16_18_54_21.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-about-2026_05_16_18_54_21.report.json",
+    "summary": {
+      "performance": 0.96,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/about",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-about-2026_05_16_18_55_21.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-about-2026_05_16_18_55_21.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/blog",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-blog-2026_05_16_18_55_47.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-blog-2026_05_16_18_55_47.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/blog",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-blog-2026_05_16_18_56_35.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-blog-2026_05_16_18_56_35.report.json",
+    "summary": {
+      "performance": 0.98,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/solutions",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-solutions-2026_05_16_18_57_07.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-solutions-2026_05_16_18_57_07.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/solutions",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-solutions-2026_05_16_18_57_50.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-solutions-2026_05_16_18_57_50.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/contact",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-contact-2026_05_16_18_58_16.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-contact-2026_05_16_18_58_16.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/contact",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-contact-2026_05_16_18_58_43.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-contact-2026_05_16_18_58_43.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/learn/inventory-management",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-learn_inventory_management-2026_05_16_18_59_10.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-learn_inventory_management-2026_05_16_18_59_10.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/learn/inventory-management",
+    "isRepresentativeRun": false,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-learn_inventory_management-2026_05_16_18_59_42.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-learn_inventory_management-2026_05_16_18_59_42.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/",
+    "isRepresentativeRun": true,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com--2026_05_16_18_53_52.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com--2026_05_16_18_53_52.report.json",
+    "summary": {
+      "performance": 0.98,
+      "accessibility": 0.91,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/about",
+    "isRepresentativeRun": true,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-about-2026_05_16_18_54_43.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-about-2026_05_16_18_54_43.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/blog",
+    "isRepresentativeRun": true,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-blog-2026_05_16_18_56_51.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-blog-2026_05_16_18_56_51.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 0.91
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/solutions",
+    "isRepresentativeRun": true,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-solutions-2026_05_16_18_58_03.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-solutions-2026_05_16_18_58_03.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/contact",
+    "isRepresentativeRun": true,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-contact-2026_05_16_18_58_30.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-contact-2026_05_16_18_58_30.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://operationsdecoded.com/learn/inventory-management",
+    "isRepresentativeRun": true,
+    "htmlPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-learn_inventory_management-2026_05_16_18_59_26.report.html",
+    "jsonPath": "D:\\Projects\\operations-decoded\\audit-results\\lighthouse\\operationsdecoded_com-learn_inventory_management-2026_05_16_18_59_26.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "seo": 1
+    }
+  }
+]
