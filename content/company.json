@@ -1,0 +1,32 @@
+{
+  "name": "Nexara Industries",
+  "city": "Chicago",
+  "industry": "Specialty coatings manufacturing",
+  "background": "PLACEHOLDER until the Phase 2 company bible: a mid-size manufacturer of industrial coatings supplying automotive and construction customers across the Midwest. Replace this file with the real bible before Phase 3.",
+  "characters": [
+    {
+      "id": "marcus",
+      "name": "Marcus Webb",
+      "role": "Production Supervisor",
+      "department": "Production",
+      "persona": "Practical, hates surprises, thinks in shifts and bins.",
+      "avatar": "/company/marcus.png"
+    },
+    {
+      "id": "diana",
+      "name": "Diana Cole",
+      "role": "Purchase Manager",
+      "department": "Procurement",
+      "persona": "Numbers-first negotiator who reads every line before signing.",
+      "avatar": "/company/diana.png"
+    },
+    {
+      "id": "leon",
+      "name": "Leon Park",
+      "role": "Accounts Payable Analyst",
+      "department": "Finance",
+      "persona": "Quietly relentless; nothing gets paid twice on his desk.",
+      "avatar": "/company/leon.png"
+    }
+  ]
+}

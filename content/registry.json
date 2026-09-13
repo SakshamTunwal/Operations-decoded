@@ -1,0 +1,11 @@
+{
+  "modules": [
+    {
+      "slug": "sample-module",
+      "title": "Sample: One Purchase, Start to Finish",
+      "domain": "supply-chain",
+      "order": 10,
+      "status": "draft"
+    }
+  ]
+}

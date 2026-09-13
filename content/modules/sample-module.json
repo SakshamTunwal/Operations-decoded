@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "slug": "sample-module",
+  "title": "One Purchase, Start to Finish",
+  "tagline": "Follow a single order from empty bin to paid invoice — and catch what goes wrong on the way.",
+  "domain": "supply-chain",
+  "difficulty": "beginner",
+  "durationMin": 15,
+  "emoji": "📦",
+  "cast": [
+    {
+      "characterId": "marcus",
+      "storyRole": "raises the requisition"
+    },
+    {
+      "characterId": "diana",
+      "storyRole": "approves, picks the vendor, sends the PO"
+    },
+    {
+      "characterId": "leon",
+      "storyRole": "runs the 3-way match"
+    }
+  ],
+  "seo": {
+    "description": "Learn the procure-to-pay cycle by running one real purchase end to end: requisition, approval, vendor choice, PO, receiving, and the 3-way match."
+  },
+  "narrativeSource": "content/narratives/sample-module.md",
+  "glossary": [
+    {
+      "term": "Purchase Requisition (PR)",
+      "definition": "An internal raised hand: a request for approval to buy. Marcus raised one when the titanium dioxide bin ran low — it never goes to any vendor.",
+      "unlockAtStep": "s1"
+    },
+    {
+      "term": "Purchase Order (PO)",
+      "definition": "The binding document sent to the vendor: what, how much, at what price, by when. Once acknowledged, both sides are committed.",
+      "unlockAtStep": "s4"
+    },
+    {
+      "term": "3-Way Match",
+      "definition": "Comparing PO, goods receipt, and invoice before paying. If the three don't agree, somebody is about to pay for something that didn't happen.",
+      "unlockAtStep": "s5"
+    }
+  ],
+  "steps": [
+    {
+      "id": "s1",
+      "label": "Production Floor",
+      "journey": {
+        "location": "Production Floor",
+        "timeLabel": "Tuesday 8:14am",
+        "dayOffset": 0,
+        "doc": "PR",
+        "icon": "🏭"
+      },
+      "payload": {
+        "type": "dialogue",
+        "lines": [
+          {
+            "characterId": "marcus",
+            "text": "The titanium dioxide bin is down to eight days of stock, and Crestline needs six to deliver. If we sit on this, we'll be counting hours instead of days."
+          },
+          {
+            "characterId": "marcus",
+            "text": "I'm raising a requisition now — Diana needs to see this before lunch, not before Friday."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2",
+      "label": "Diana's Office",
+      "journey": {
+        "location": "Purchase Department",
+        "timeLabel": "Tuesday 9:20am",
+        "dayOffset": 0,
+        "doc": "Approval",
+        "icon": "🏢"
+      },
+      "payload": {
+        "type": "decision",
+        "prompt": "Line 2 uses about 650 kg a day. The usual vendor delivers in 6 days. How much should Diana approve?",
+        "choices": [
+          {
+            "id": "q2000",
+            "label": "2,000 kg",
+            "implication": "About 3 days of cover after arrival",
+            "correct": false,
+            "feedback": "That covers the gap only if nothing slips. One late truck and Line 2 stops anyway.",
+            "tone": "caution"
+          },
+          {
+            "id": "q4500",
+            "label": "4,500 kg",
+            "implication": "About 7 days of cover after arrival",
+            "correct": true,
+            "feedback": "Covers the 6-day lead time plus a buffer for a late delivery, without freezing a month of cash in powder.",
+            "tone": "positive"
+          },
+          {
+            "id": "q9000",
+            "label": "9,000 kg",
+            "implication": "Two weeks of cover — and a full warehouse rack",
+            "correct": false,
+            "feedback": "Safe, but that's cash sitting on a shelf and rack space you don't have. Over-ordering is a cost too, just a quieter one.",
+            "tone": "caution"
+          }
+        ],
+        "teachingPoint": "Order quantity is a cash-versus-risk decision: cover the lead time plus realistic slippage, not your anxiety."
+      }
+    },
+    {
+      "id": "s3",
+      "label": "Vendor Select",
+      "journey": {
+        "location": "Procurement System",
+        "timeLabel": "Tuesday 10:05am",
+        "dayOffset": 0,
+        "doc": "Vendor",
+        "icon": "📊"
+      },
+      "payload": {
+        "type": "compare",
+        "prompt": "Three vendors can supply. Titanium dioxide is a critical raw material. Who gets the order?",
+        "attributes": [
+          "Price per kg",
+          "Lead time (days)",
+          "Track record"
+        ],
+        "options": [
+          {
+            "id": "crestline",
+            "name": "Crestline Materials",
+            "values": {
+              "Price per kg": "$1.85",
+              "Lead time (days)": 6,
+              "Track record": "2 years, zero failed deliveries"
+            },
+            "tag": "Preferred Vendor",
+            "tone": "positive"
+          },
+          {
+            "id": "primechem",
+            "name": "PrimeChem Direct",
+            "values": {
+              "Price per kg": "$1.62",
+              "Lead time (days)": 4,
+              "Track record": "New vendor, 3 transactions"
+            },
+            "tag": "Unverified",
+            "tone": "danger",
+            "note": "No quality audit on file for a critical material."
+          },
+          {
+            "id": "chembridge",
+            "name": "ChemBridge Global",
+            "values": {
+              "Price per kg": "$1.74",
+              "Lead time (days)": 5,
+              "Track record": "8 months, 2 minor delays"
+            },
+            "tag": "Approved",
+            "tone": "info"
+          }
+        ],
+        "correctOptionId": "crestline",
+        "feedbackCorrect": "Right. On a critical material, a proven vendor at $1.85 beats an unaudited one at $1.62 — the 23-cent saving is smaller than the cost of one stopped line.",
+        "feedbackWrong": "Tempting price — but an unverified vendor on a critical material is how production lines stop. The saving doesn't survive one bad batch.",
+        "teachingPoint": "Vendor selection prices in risk, not just dollars per kg. Critical materials earn stricter rules."
+      }
+    },
+    {
+      "id": "s4",
+      "label": "PO Dispatch",
+      "journey": {
+        "location": "Purchase Department",
+        "timeLabel": "Tuesday 11:30am",
+        "dayOffset": 0,
+        "doc": "PO",
+        "icon": "✉️"
+      },
+      "payload": {
+        "type": "diagnose",
+        "documentTitle": "Purchase Order #4471 — Crestline Materials",
+        "intro": "Diana drafted the PO in a hurry. Check it before it goes out.",
+        "fields": [
+          {
+            "id": "vendor",
+            "label": "Vendor",
+            "shown": "Crestline Materials",
+            "correct": "Crestline Materials",
+            "isError": false
+          },
+          {
+            "id": "qty",
+            "label": "Quantity",
+            "shown": "4,500",
+            "correct": "4,500",
+            "isError": false
+          },
+          {
+            "id": "uom",
+            "label": "Unit of Measure",
+            "shown": "liters",
+            "correct": "kg",
+            "isError": true,
+            "explanation": "Titanium dioxide is a powder bought by weight. A vendor shipping 4,500 liters would deliver the wrong quantity entirely."
+          },
+          {
+            "id": "addr",
+            "label": "Delivery Address",
+            "shown": "Receiving Bay 5",
+            "correct": "Receiving Bay 3",
+            "isError": true,
+            "explanation": "Bay 5 is finished goods. Raw material trucks that arrive there get turned away — and the clock restarts."
+          },
+          {
+            "id": "price",
+            "label": "Unit Price",
+            "shown": "$1.85 / kg",
+            "correct": "$1.85 / kg",
+            "isError": false
+          },
+          {
+            "id": "terms",
+            "label": "Payment Terms",
+            "shown": "Net 30",
+            "correct": "Net 30",
+            "isError": false
+          }
+        ],
+        "teachingPoint": "A PO error becomes everyone's error downstream — receiving, accounts, and the vendor all inherit it."
+      }
+    },
+    {
+      "id": "s5",
+      "label": "Receiving Bay",
+      "journey": {
+        "location": "Receiving Bay 3",
+        "timeLabel": "Six Days Later, 8:40am",
+        "dayOffset": 6,
+        "doc": "GRN",
+        "icon": "🚚"
+      },
+      "payload": {
+        "type": "calc",
+        "prompt": "The truck arrives and 4,500 kg checks in clean. Leon starts the match: what should Crestline's invoice line total be?",
+        "given": [
+          {
+            "label": "Quantity received",
+            "value": 4500,
+            "unit": "kg"
+          },
+          {
+            "label": "PO unit price",
+            "value": 1.85,
+            "unit": "$/kg"
+          }
+        ],
+        "answer": 8325,
+        "tolerance": 1,
+        "unit": "$",
+        "formulaReveal": "4,500 kg × $1.85/kg = $8,325",
+        "teachingPoint": "The 3-way match starts with arithmetic anyone can do — and catches errors nobody else will."
+      }
+    },
+    {
+      "id": "s6",
+      "label": "Quick Check",
+      "journey": {
+        "location": "Accounts Payable",
+        "timeLabel": "Three Days After Delivery",
+        "dayOffset": 9,
+        "doc": "Invoice",
+        "icon": "📋"
+      },
+      "payload": {
+        "type": "quiz",
+        "questions": [
+          {
+            "prompt": "Crestline's invoice arrives showing 4,700 kg. The GRN says 4,500 kg. What does Leon do?",
+            "options": [
+              {
+                "id": "pay",
+                "text": "Pay it — the difference is small"
+              },
+              {
+                "id": "hold",
+                "text": "Hold payment and query the mismatch with the vendor"
+              },
+              {
+                "id": "edit",
+                "text": "Edit the GRN to 4,700 so the documents agree"
+              }
+            ],
+            "correctId": "hold",
+            "explanation": "The match failed, so payment stops until the documents agree. Editing the GRN to force agreement is how companies pay for goods that never arrived."
+          },
+          {
+            "prompt": "Which document committed Nexara to the price?",
+            "options": [
+              {
+                "id": "pr",
+                "text": "The Purchase Requisition"
+              },
+              {
+                "id": "po",
+                "text": "The Purchase Order"
+              },
+              {
+                "id": "grn",
+                "text": "The Goods Receipt Note"
+              }
+            ],
+            "correctId": "po",
+            "explanation": "The PR asks internally; the GRN records arrival. The PO is the binding commercial document both sides committed to."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s7",
+      "label": "Wrap",
+      "journey": {
+        "location": "Finance Department",
+        "timeLabel": "Day 30",
+        "dayOffset": 30,
+        "doc": "Payment",
+        "icon": "💰"
+      },
+      "payload": {
+        "type": "summary",
+        "takeaways": [
+          "Procure-to-pay is one chain: PR → Approval → Vendor → PO → GRN → Invoice match → Payment.",
+          "Every document exists to catch a specific kind of error before it becomes money.",
+          "Vendor choice on critical materials is a risk decision, not a price decision.",
+          "When the 3-way match fails, payment stops — the documents are made to agree by investigation, never by editing."
+        ]
+      }
+    }
+  ]
+}
