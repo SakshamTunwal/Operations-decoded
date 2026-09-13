@@ -23,6 +23,7 @@ export async function generateMetadata({
   const data = loadModule(slug);
   if (!data) return {};
   return {
+    metadataBase: new URL("https://www.operationsdecoded.com"),
     title: `${data.module.title} — Operations Decoded`,
     description: data.module.seo.description,
     openGraph: data.module.seo.ogImage ? { images: [data.module.seo.ogImage] } : undefined,
