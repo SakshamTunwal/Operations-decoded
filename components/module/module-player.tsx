@@ -22,6 +22,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { Company, Module, Step } from "../../lib/module-schema";
+import FactoryStage from "./factory-stage";
 
 /* ----------------------------- tokens ------------------------------------ */
 
@@ -161,7 +162,8 @@ function DialogueView({ step, company }: { step: Extract<Payload, { type: "dialo
   const chars = useMemo(() => new Map(company.characters.map((c) => [c.id, c])), [company]);
   const reduce = useReducedMotion();
   return (
-    <div style={{ display: "grid", gap: 14 }}>
+    <div style={{ display: "grid", gap: 10, opacity: 0.92 }}>
+      <p style={{ margin: 0, fontSize: 11.5, fontWeight: 800, letterSpacing: 1.5, textTransform: "uppercase", color: T.steel }}>Transcript</p>
       {step.lines.map((l, i) => {
         const c = chars.get(l.characterId);
         return (
@@ -187,7 +189,7 @@ function DialogueView({ step, company }: { step: Extract<Payload, { type: "dialo
                 {c?.name ?? l.characterId}
                 <span style={{ fontWeight: 400, color: T.inkSoft }}> — {c?.role}</span>
               </div>
-              <p style={{ margin: "3px 0 0", fontSize: 16, lineHeight: 1.55 }}>{l.text}</p>
+              <p style={{ margin: "3px 0 0", fontSize: 14.5, lineHeight: 1.5 }}>{l.text}</p>
             </div>
           </motion.div>
         );
@@ -607,21 +609,16 @@ export default function ModulePlayer({ module: mod, company }: { module: Module;
         precedence="default"
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap"
       />
-      <main style={{ maxWidth: 780, margin: "0 auto", padding: "36px 20px 80px" }}>
+      <main style={{ maxWidth: 860, margin: "0 auto", padding: "28px 20px 80px" }}>
+        <FactoryStage mod={mod} company={company} idx={idx} dir={dir} />
+
         {/* Header — the brass plaque */}
         <header style={{ marginBottom: 26 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ fontSize: 34, background: "#FFFDF8", border: `1px solid ${T.line}`, borderRadius: 14, width: 62, height: 62, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 12px rgba(43,38,32,0.10)" }}>
-              {mod.emoji}
-            </div>
-            <div>
-              <h1 style={{ fontFamily: serif, fontSize: 30, lineHeight: 1.15, margin: 0 }}>{mod.title}</h1>
-              <p style={{ margin: "4px 0 0", color: T.inkSoft, fontSize: 15.5 }}>{mod.tagline}</p>
-            </div>
-          </div>
-          <p style={{ margin: "12px 0 0", fontSize: 11.5, letterSpacing: 1.6, textTransform: "uppercase", color: T.steel, fontWeight: 700 }}>
-            {mod.domain.replace("-", " ")} · {mod.difficulty} · ~{mod.durationMin} min ·{" "}
-            <span style={{ color: T.brass }}>{company.name}</span> · {company.city}
+          <h1 style={{ fontFamily: serif, fontSize: 24, lineHeight: 1.15, margin: 0 }}>{mod.emoji} {mod.title}</h1>
+          <p style={{ margin: "4px 0 0", color: T.inkSoft, fontSize: 14.5 }}>{mod.tagline}
+            <span style={{ marginLeft: 10, fontSize: 11, letterSpacing: 1.4, textTransform: "uppercase", color: T.steel, fontWeight: 700 }}>
+              {mod.domain.replace("-", " ")} · {mod.difficulty} · ~{mod.durationMin} min
+            </span>
           </p>
         </header>
 
@@ -654,16 +651,9 @@ export default function ModulePlayer({ module: mod, company }: { module: Module;
           <motion.div animate={{ width: `${progress}%` }} transition={spring} style={{ height: "100%", background: `linear-gradient(90deg, ${T.wood}, ${T.brass})`, borderRadius: 999 }} />
         </div>
 
-        {/* Location line */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 16, fontSize: 14.5 }}>
-          <span>
-            <strong style={{ fontFamily: serif, fontSize: 16 }}>{step.journey.location}</strong>
-            <span style={{ color: T.inkSoft }}> · {step.journey.timeLabel}</span>
-            <LiveDate dayOffset={step.journey.dayOffset} />
-          </span>
-          <span style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", color: T.steel, background: "#FFFDF8", border: `1px solid ${T.line}`, padding: "3px 10px", borderRadius: 999 }}>
-            {step.journey.doc}
-          </span>
+        {/* Live date line */}
+        <div style={{ marginBottom: 14, fontSize: 13.5, color: T.inkSoft }}>
+          <LiveDate dayOffset={step.journey.dayOffset} />
         </div>
 
         {/* Step content — the camera pans, never hard-switches */}

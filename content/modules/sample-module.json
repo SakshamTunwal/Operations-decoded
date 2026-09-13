@@ -51,7 +51,8 @@
         "timeLabel": "Tuesday 8:14am",
         "dayOffset": 0,
         "doc": "PR",
-        "icon": "🏗️"
+        "icon": "🏗️",
+        "scene": "warehouse"
       },
       "payload": {
         "type": "dialogue",
@@ -75,7 +76,8 @@
         "timeLabel": "Tuesday 9:20am",
         "dayOffset": 0,
         "doc": "Approval",
-        "icon": "🏢"
+        "icon": "🏢",
+        "scene": "office"
       },
       "payload": {
         "type": "decision",
@@ -117,7 +119,8 @@
         "timeLabel": "Tuesday 10:05am",
         "dayOffset": 0,
         "doc": "Vendor",
-        "icon": "📊"
+        "icon": "📊",
+        "scene": "office"
       },
       "payload": {
         "type": "compare",
@@ -177,7 +180,8 @@
         "timeLabel": "Tuesday 11:30am",
         "dayOffset": 0,
         "doc": "PO",
-        "icon": "✉️"
+        "icon": "✉️",
+        "scene": "office"
       },
       "payload": {
         "type": "diagnose",
@@ -240,7 +244,8 @@
         "timeLabel": "Six Days Later, 8:40am",
         "dayOffset": 6,
         "doc": "GRN",
-        "icon": "🚚"
+        "icon": "🚚",
+        "scene": "dock"
       },
       "payload": {
         "type": "calc",
@@ -272,7 +277,8 @@
         "timeLabel": "Three Days After Delivery",
         "dayOffset": 9,
         "doc": "Invoice",
-        "icon": "📋"
+        "icon": "📋",
+        "scene": "finance"
       },
       "payload": {
         "type": "quiz",
@@ -326,7 +332,8 @@
         "timeLabel": "Day 30",
         "dayOffset": 30,
         "doc": "Payment",
-        "icon": "💰"
+        "icon": "💰",
+        "scene": "finance"
       },
       "payload": {
         "type": "summary",

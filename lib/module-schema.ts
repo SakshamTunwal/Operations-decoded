@@ -71,6 +71,9 @@ export const JourneyPoint = z.object({
   /** Document at the center of this step: "PR", "PO", "GRN", "Invoice"… */
   doc: z.string().min(1).max(24),
   icon: z.string().min(1).max(8), // emoji
+  /** Which illustrated stage set this step plays on. Optional; the engine
+   *  falls back to a location-name heuristic, then to the office. */
+  scene: z.enum(["warehouse", "office", "dock", "finance"]).optional(),
 });
 
 export const DialogueLine = z.object({
