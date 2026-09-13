@@ -9,26 +9,26 @@
   "emoji": "📦",
   "cast": [
     {
-      "characterId": "marcus",
-      "storyRole": "raises the requisition"
+      "characterId": "dale",
+      "storyRole": "spots the shortage and raises the requisition"
     },
     {
-      "characterId": "diana",
-      "storyRole": "approves, picks the vendor, sends the PO"
+      "characterId": "ray",
+      "storyRole": "approves the quantity, picks the vendor, sends the PO"
     },
     {
-      "characterId": "leon",
-      "storyRole": "runs the 3-way match"
+      "characterId": "nadia",
+      "storyRole": "runs the 3-way match before anyone gets paid"
     }
   ],
   "seo": {
-    "description": "Learn the procure-to-pay cycle by running one real purchase end to end: requisition, approval, vendor choice, PO, receiving, and the 3-way match."
+    "description": "Run one real purchase end to end at a furniture plant: requisition, approval, vendor choice, PO, receiving, and the 3-way match before payment."
   },
   "narrativeSource": "content/narratives/sample-module.md",
   "glossary": [
     {
       "term": "Purchase Requisition (PR)",
-      "definition": "An internal raised hand: a request for approval to buy. Marcus raised one when the titanium dioxide bin ran low — it never goes to any vendor.",
+      "definition": "An internal raised hand: a request for approval to buy. Dale raised one when Rack 14 ran low on steel tube — it never goes to any vendor.",
       "unlockAtStep": "s1"
     },
     {
@@ -38,40 +38,40 @@
     },
     {
       "term": "3-Way Match",
-      "definition": "Comparing PO, goods receipt, and invoice before paying. If the three don't agree, somebody is about to pay for something that didn't happen.",
+      "definition": "Comparing PO, goods receipt, and invoice before paying. If the three don't agree, Nadia's stamp stays in the drawer — and so does the money.",
       "unlockAtStep": "s5"
     }
   ],
   "steps": [
     {
       "id": "s1",
-      "label": "Production Floor",
+      "label": "Warehouse",
       "journey": {
-        "location": "Production Floor",
+        "location": "Warehouse, Rack 14",
         "timeLabel": "Tuesday 8:14am",
         "dayOffset": 0,
         "doc": "PR",
-        "icon": "🏭"
+        "icon": "🏗️"
       },
       "payload": {
         "type": "dialogue",
         "lines": [
           {
-            "characterId": "marcus",
-            "text": "The titanium dioxide bin is down to eight days of stock, and Crestline needs six to deliver. If we sit on this, we'll be counting hours instead of days."
+            "characterId": "dale",
+            "text": "Rack 14 is down to eight days of 25-millimeter steel tube, and Crestline needs six to deliver. If we sit on this, we'll be counting hours instead of days."
           },
           {
-            "characterId": "marcus",
-            "text": "I'm raising a requisition now — Diana needs to see this before lunch, not before Friday."
+            "characterId": "dale",
+            "text": "I'm raising a requisition now — Ray sees this before lunch, not before Friday. The Fairview line doesn't wait."
           }
         ]
       }
     },
     {
       "id": "s2",
-      "label": "Diana's Office",
+      "label": "Ray's Office",
       "journey": {
-        "location": "Purchase Department",
+        "location": "Procurement Department",
         "timeLabel": "Tuesday 9:20am",
         "dayOffset": 0,
         "doc": "Approval",
@@ -79,14 +79,14 @@
       },
       "payload": {
         "type": "decision",
-        "prompt": "Line 2 uses about 650 kg a day. The usual vendor delivers in 6 days. How much should Diana approve?",
+        "prompt": "The Fairview chair line bends about 650 kg of tube a day. Crestline delivers in 6 days. How much should Ray approve?",
         "choices": [
           {
             "id": "q2000",
             "label": "2,000 kg",
             "implication": "About 3 days of cover after arrival",
             "correct": false,
-            "feedback": "That covers the gap only if nothing slips. One late truck and Line 2 stops anyway.",
+            "feedback": "That covers the gap only if nothing slips. One late truck and the Fairview line stops anyway.",
             "tone": "caution"
           },
           {
@@ -94,13 +94,13 @@
             "label": "4,500 kg",
             "implication": "About 7 days of cover after arrival",
             "correct": true,
-            "feedback": "Covers the 6-day lead time plus a buffer for a late delivery, without freezing a month of cash in powder.",
+            "feedback": "Covers the 6-day lead time plus a buffer for a late delivery, without freezing a month of cash sitting as steel.",
             "tone": "positive"
           },
           {
             "id": "q9000",
             "label": "9,000 kg",
-            "implication": "Two weeks of cover — and a full warehouse rack",
+            "implication": "Two weeks of cover — and half of Rack 14",
             "correct": false,
             "feedback": "Safe, but that's cash sitting on a shelf and rack space you don't have. Over-ordering is a cost too, just a quieter one.",
             "tone": "caution"
@@ -121,7 +121,7 @@
       },
       "payload": {
         "type": "compare",
-        "prompt": "Three vendors can supply. Titanium dioxide is a critical raw material. Who gets the order?",
+        "prompt": "Three vendors can supply 25mm tube. It feeds the flagship line — a critical material. Who gets the order?",
         "attributes": [
           "Price per kg",
           "Lead time (days)",
@@ -141,7 +141,7 @@
           },
           {
             "id": "primechem",
-            "name": "PrimeChem Direct",
+            "name": "PrimeSteel Direct",
             "values": {
               "Price per kg": "$1.62",
               "Lead time (days)": 4,
@@ -153,7 +153,7 @@
           },
           {
             "id": "chembridge",
-            "name": "ChemBridge Global",
+            "name": "Bridgeport Metals",
             "values": {
               "Price per kg": "$1.74",
               "Lead time (days)": 5,
@@ -164,8 +164,8 @@
           }
         ],
         "correctOptionId": "crestline",
-        "feedbackCorrect": "Right. On a critical material, a proven vendor at $1.85 beats an unaudited one at $1.62 — the 23-cent saving is smaller than the cost of one stopped line.",
-        "feedbackWrong": "Tempting price — but an unverified vendor on a critical material is how production lines stop. The saving doesn't survive one bad batch.",
+        "feedbackCorrect": "Right. On the material that feeds your flagship line, a proven vendor at $1.85 beats an unaudited one at $1.62 — the 23-cent saving is smaller than the cost of one stopped line.",
+        "feedbackWrong": "Tempting price — but an unverified vendor on a critical material is how production lines stop. The saving doesn't survive one bad batch of tube.",
         "teachingPoint": "Vendor selection prices in risk, not just dollars per kg. Critical materials earn stricter rules."
       }
     },
@@ -182,7 +182,7 @@
       "payload": {
         "type": "diagnose",
         "documentTitle": "Purchase Order #4471 — Crestline Materials",
-        "intro": "Diana drafted the PO in a hurry. Check it before it goes out.",
+        "intro": "Ray drafted the PO between two phone calls. Check it before it goes out.",
         "fields": [
           {
             "id": "vendor",
@@ -201,10 +201,10 @@
           {
             "id": "uom",
             "label": "Unit of Measure",
-            "shown": "liters",
+            "shown": "meters",
             "correct": "kg",
             "isError": true,
-            "explanation": "Titanium dioxide is a powder bought by weight. A vendor shipping 4,500 liters would deliver the wrong quantity entirely."
+            "explanation": "Tube is bought by weight, not length. A vendor shipping 4,500 meters would deliver a completely different quantity than 4,500 kg."
           },
           {
             "id": "addr",
@@ -212,7 +212,7 @@
             "shown": "Receiving Bay 5",
             "correct": "Receiving Bay 3",
             "isError": true,
-            "explanation": "Bay 5 is finished goods. Raw material trucks that arrive there get turned away — and the clock restarts."
+            "explanation": "Bay 5 is finished goods. Raw material trucks that arrive there get turned away — and the six-day clock restarts."
           },
           {
             "id": "price",
@@ -244,7 +244,7 @@
       },
       "payload": {
         "type": "calc",
-        "prompt": "The truck arrives and 4,500 kg checks in clean. Leon starts the match: what should Crestline's invoice line total be?",
+        "prompt": "The truck backs into Bay 3 and 4,500 kg checks in clean. Nadia opens the match: what should Crestline's invoice line total be?",
         "given": [
           {
             "label": "Quantity received",
@@ -278,7 +278,7 @@
         "type": "quiz",
         "questions": [
           {
-            "prompt": "Crestline's invoice arrives showing 4,700 kg. The GRN says 4,500 kg. What does Leon do?",
+            "prompt": "Crestline's invoice arrives showing 4,700 kg. The GRN says 4,500 kg. What does Nadia do?",
             "options": [
               {
                 "id": "pay",

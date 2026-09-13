@@ -1,32 +1,72 @@
 {
-  "name": "Nexara Industries",
-  "city": "Chicago",
-  "industry": "Specialty coatings manufacturing",
-  "background": "PLACEHOLDER until the Phase 2 company bible: a mid-size manufacturer of industrial coatings supplying automotive and construction customers across the Midwest. Replace this file with the real bible before Phase 3.",
+  "name": "Furniture Decoded",
+  "city": "Grand Rapids, Michigan",
+  "industry": "Commercial and home furniture manufacturing",
+  "background": "Founded 1994 by Frank Delgado, who got his nickname flipping competitors' chairs upside down at trade shows to see how they were built — 'decoding furniture' — until the name stuck to the company. Today: ~340 people, one plant and warehouse on Godfrey Ave, three product lines (Fairview task chairs — the flagship, Merritt desks, Stackline shelving). Raw materials: steel tube, plywood and veneer, seat foam, upholstery fabric, fasteners and castors — some imported, most domestic. Eighteen months ago the company rolled out CoreLine ERP, and the building has not fully forgiven it. See docs/company-bible.md for the full bible: voices, running gags, the friction map, and writer rules.",
   "characters": [
     {
+      "id": "frank",
+      "name": "Frank Delgado",
+      "role": "Founder & CEO",
+      "department": "Executive",
+      "persona": "58. Built the company from a two-man workshop; decides from the gut and distrusts dashboards. Warm, stubborn, fiercely loyal to the floor. Speech: short declaratives, workshop metaphors, and the running gag — 'In 1994 we did this with a fax machine.'",
+      "avatar": "/company/frank.png"
+    },
+    {
+      "id": "priya",
+      "name": "Priya Raman",
+      "role": "Operations Director",
+      "department": "Operations",
+      "persona": "41. The calm center and the learner's guide; sees the whole chain when everyone else sees their corner. Dry humor, surgically precise questions, keeps a private 'told-you-so' notebook she never quotes from — people just know it exists. Flaw: absorbs too much herself before delegating.",
+      "avatar": "/company/priya.png"
+    },
+    {
+      "id": "dale",
+      "name": "Dale Kowalski",
+      "role": "Warehouse Manager",
+      "department": "Warehouse & Receiving",
+      "persona": "52, 'Big D'. Knows every rack and pallet from memory and is usually right; trusts his clipboard over CoreLine — 'the computer lies.' Heart of gold, voice like a forklift. Flaw: hides problems to protect his crew until they're too big to hide.",
+      "avatar": "/company/dale.png"
+    },
+    {
       "id": "marcus",
-      "name": "Marcus Webb",
-      "role": "Production Supervisor",
-      "department": "Production",
-      "persona": "Practical, hates surprises, thinks in shifts and bins.",
+      "name": "Marcus Chen",
+      "role": "ERP & Data Analyst",
+      "department": "IT & Systems",
+      "persona": "29. Fresh certification, earnest to a fault, believes the system is always right and the floor is a rounding error. Ends sentences with '…according to the system.' Flaw: trusts data over eyes. His slow-burn friendship-feud with Dale is the engine of the series.",
       "avatar": "/company/marcus.png"
     },
     {
-      "id": "diana",
-      "name": "Diana Cole",
-      "role": "Purchase Manager",
-      "department": "Procurement",
-      "persona": "Numbers-first negotiator who reads every line before signing.",
-      "avatar": "/company/diana.png"
+      "id": "sofia",
+      "name": "Sofia Marchetti",
+      "role": "Head of Sales",
+      "department": "Sales",
+      "persona": "45. Charming, relentless, beloved by customers and feared by planners; promises delivery dates first and checks stock second. Signature entrance: 'Small thing — I may have already told the client yes.' Flaw: optimism as a business model.",
+      "avatar": "/company/sofia.png"
     },
     {
-      "id": "leon",
-      "name": "Leon Park",
-      "role": "Accounts Payable Analyst",
+      "id": "ray",
+      "name": "Ray Okafor",
+      "role": "Procurement Manager",
+      "department": "Procurement",
+      "persona": "38. Negotiator with three phones and a vendor-gossip network better than any market report. Genuinely good at his job. Flaw: loves a discount slightly more than he loves the risk register — a bargain makes his eyes shine. Sparring partner: Nadia, over payment terms, forever.",
+      "avatar": "/company/ray.png"
+    },
+    {
+      "id": "nadia",
+      "name": "Nadia Volkov",
+      "role": "Finance Controller",
       "department": "Finance",
-      "persona": "Quietly relentless; nothing gets paid twice on his desk.",
-      "avatar": "/company/leon.png"
+      "persona": "49. Nothing gets paid without three matching documents; deadpan delivery, unbeatable memory for invoice numbers. Stamps documents with visible pleasure — the whole floor knows the sound. Flaw: rigid at exactly the wrong moments. Motto: 'The documents agree, or the money stays.'",
+      "avatar": "/company/nadia.png"
+    },
+    {
+      "id": "tommy",
+      "name": "Tommy Nguyen",
+      "role": "Operations Trainee",
+      "department": "Operations",
+      "persona": "22. First job, boundless enthusiasm, asks the 'dumb' question that is secretly the lesson. Flaw: touches things he shouldn't — several stories begin with 'so Tommy pressed a button.' The learner's stand-in and the cast's shared little brother.",
+      "avatar": "/company/tommy.png"
     }
   ]
 }
