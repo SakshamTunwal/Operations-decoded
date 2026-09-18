@@ -70,10 +70,10 @@ The premium feel is bought once and reused forever. Status today:
 |---|---|---|
 | Design tokens & type (Workshop Premium) | site-wide | ✅ v1 |
 | Motion vocabulary (pan/stamp/spark/springs) | engine | ✅ v1 |
-| Cast sprites (8 characters) | all modules | ✅ v1 — refine pass pending |
-| Location scenes | ~10 rooms total; 4 built (warehouse, office, dock, finance) | 🔶 density pass next; floor/QC/shipping later |
-| In-scene decision panel | engine | ⬜ next task |
-| Live scene data labels (driven by module JSON) | engine + schema | ⬜ next task |
+| Cast sprites (8 characters) | all modules | ✅ v2 — necks, hands, shoes, talking gesture |
+| Location scenes | ~10 rooms total; 4 built (warehouse, office, dock, finance) | ✅ v2 density (lights, depth, props, ambient workers); floor/QC/shipping later |
+| In-scene decision panel | engine | ✅ (decision steps play inside the scene) |
+| Live scene data labels (driven by module JSON) | engine + schema | ✅ `journey.sceneData` → DataPlaque |
 | Drag-to-order `sequence` | engine | ⬜ Phase 2 close |
 | Bespoke `scene` registry | engine | ⬜ when first showpiece module needs it |
 | Sound design | engine, optional | ⬜ parked — decide after first real module |

@@ -52,7 +52,12 @@
         "dayOffset": 0,
         "doc": "PR",
         "icon": "🏗️",
-        "scene": "warehouse"
+        "scene": "warehouse",
+        "sceneData": {
+          "label": "25MM STEEL TUBE",
+          "value": "8 DAYS LEFT",
+          "tone": "caution"
+        }
       },
       "payload": {
         "type": "dialogue",
@@ -77,7 +82,12 @@
         "dayOffset": 0,
         "doc": "Approval",
         "icon": "🏢",
-        "scene": "office"
+        "scene": "office",
+        "sceneData": {
+          "label": "PR #2210 · TUBE",
+          "value": "AWAITING QTY",
+          "tone": "info"
+        }
       },
       "payload": {
         "type": "decision",
@@ -120,7 +130,12 @@
         "dayOffset": 0,
         "doc": "Vendor",
         "icon": "📊",
-        "scene": "office"
+        "scene": "office",
+        "sceneData": {
+          "label": "VENDOR SHORTLIST",
+          "value": "3 QUOTES",
+          "tone": "info"
+        }
       },
       "payload": {
         "type": "compare",
@@ -181,7 +196,12 @@
         "dayOffset": 0,
         "doc": "PO",
         "icon": "✉️",
-        "scene": "office"
+        "scene": "office",
+        "sceneData": {
+          "label": "PO #4471 · DRAFT",
+          "value": "CHECK IT",
+          "tone": "caution"
+        }
       },
       "payload": {
         "type": "diagnose",
@@ -245,7 +265,12 @@
         "dayOffset": 6,
         "doc": "GRN",
         "icon": "🚚",
-        "scene": "dock"
+        "scene": "dock",
+        "sceneData": {
+          "label": "PO #4471 ARRIVAL",
+          "value": "4,500 KG",
+          "tone": "positive"
+        }
       },
       "payload": {
         "type": "calc",
@@ -278,7 +303,12 @@
         "dayOffset": 9,
         "doc": "Invoice",
         "icon": "📋",
-        "scene": "finance"
+        "scene": "finance",
+        "sceneData": {
+          "label": "INVOICE #CR-9924",
+          "value": "4,700 KG?",
+          "tone": "danger"
+        }
       },
       "payload": {
         "type": "quiz",
@@ -333,7 +363,12 @@
         "dayOffset": 30,
         "doc": "Payment",
         "icon": "💰",
-        "scene": "finance"
+        "scene": "finance",
+        "sceneData": {
+          "label": "PAID · NET 30",
+          "value": "$8,325",
+          "tone": "positive"
+        }
       },
       "payload": {
         "type": "summary",

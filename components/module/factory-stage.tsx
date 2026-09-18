@@ -38,7 +38,7 @@ function bubbleCue(step: Step): string | null {
   const p = step.payload;
   const cut = (s: string) => (s.length > 92 ? s.slice(0, 89).trimEnd() + "…" : s);
   switch (p.type) {
-    case "decision": case "compare": case "calc": return cut(p.prompt);
+    case "compare": case "calc": return cut(p.prompt);
     case "form": case "diagnose": return cut(p.intro);
     case "sequence": return cut(p.prompt);
     case "quiz": return "Quick check — prove it stuck.";
@@ -47,7 +47,7 @@ function bubbleCue(step: Step): string | null {
   }
 }
 
-export default function FactoryStage({ mod, company, idx, dir }: { mod: Module; company: Company; idx: number; dir: number }) {
+export default function FactoryStage({ mod, company, idx, dir, decisionPick, onDecide }: { mod: Module; company: Company; idx: number; dir: number; decisionPick?: string | null; onDecide?: (choiceId: string) => void }) {
   const reduce = useReducedMotion();
   const step = mod.steps[idx];
   const scene: SceneId = step.journey.scene ?? sceneForLocation(step.journey.location);
@@ -106,12 +106,65 @@ export default function FactoryStage({ mod, company, idx, dir }: { mod: Module; 
             transition={{ type: "spring", stiffness: 170, damping: 26 }}
           >
             <svg viewBox="0 0 960 420" style={{ display: "block", width: "100%", height: "auto" }} aria-hidden>
-              <SceneArt scene={scene} truckArrive={scene === "dock"} />
+              <SceneArt scene={scene} datum={step.journey.sceneData} truckArrive={scene === "dock"} />
               {people.map((pp, i) => (
                 <PersonSprite key={pp.id} id={pp.id} x={pp.x} flip={pp.flip} talking={!!bubbleText && pp.id === speaker?.id} entering={sceneChanged || i >= 2} />
               ))}
             </svg>
           </motion.div>
+        </AnimatePresence>
+
+        {/* in-scene decision panel */}
+        <AnimatePresence>
+          {step.payload.type === "decision" && onDecide && (
+            <motion.div
+              key={step.id + "-panel"}
+              initial={{ opacity: 0, y: 14, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ type: "spring", stiffness: 320, damping: 28, delay: 0.25 }}
+              style={{
+                position: "absolute", top: 10, right: 10, width: "min(330px, 52%)",
+                background: "rgba(43,38,32,0.94)", borderRadius: 14, padding: "12px 12px 10px",
+                boxShadow: "0 14px 34px rgba(43,38,32,0.4)", fontFamily: sans,
+                maxHeight: "82%", overflowY: "auto",
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div style={{ color: "#F5EFE4", fontFamily: serif, fontWeight: 700, fontSize: 14.5, lineHeight: 1.35, marginBottom: 10 }}>
+                {step.payload.prompt}
+              </div>
+              <div style={{ display: "grid", gap: 7 }}>
+                {step.payload.choices.map((c, ci) => {
+                  const picked = decisionPick === c.id;
+                  const done = decisionPick != null;
+                  const border = picked ? (c.correct ? "#8FBF9A" : "#D98A7A") : "transparent";
+                  return (
+                    <motion.button
+                      key={c.id}
+                      whileHover={done ? undefined : { scale: 1.015 }}
+                      whileTap={done ? undefined : { scale: 0.985 }}
+                      onClick={() => !done && onDecide(c.id)}
+                      style={{
+                        display: "flex", gap: 9, alignItems: "baseline", textAlign: "left", width: "100%",
+                        background: picked ? (c.correct ? "#E7F0E5" : "#F7E6E1") : "#FFFDF8",
+                        border: `2px solid ${border}`, borderRadius: 9, padding: "8px 10px",
+                        cursor: done ? "default" : "pointer", opacity: done && !picked ? 0.55 : 1,
+                        fontFamily: sans,
+                      }}
+                    >
+                      <span style={{ fontWeight: 800, fontSize: 12, color: "#8B5E3C" }}>{String.fromCharCode(65 + ci)}</span>
+                      <span style={{ fontSize: 13.5, fontWeight: 600, color: "#2B2620", lineHeight: 1.35 }}>
+                        {c.label}
+                        <span style={{ display: "block", fontWeight: 400, fontSize: 12, color: "#6B6257" }}>{c.implication}</span>
+                      </span>
+                      {picked && <span style={{ marginLeft: "auto", fontWeight: 800, color: c.correct ? "#3E7A4E" : "#A8402F" }}>{c.correct ? "✓" : "✗"}</span>}
+                    </motion.button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
 
         {/* speech bubble overlay */}

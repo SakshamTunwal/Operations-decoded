@@ -74,6 +74,15 @@ export const JourneyPoint = z.object({
   /** Which illustrated stage set this step plays on. Optional; the engine
    *  falls back to a location-name heuristic, then to the office. */
   scene: z.enum(["warehouse", "office", "dock", "finance"]).optional(),
+  /** Live data shown as a plaque INSIDE the scene (the "OAK BOARDS · 0
+   *  AVAILABLE" pattern). Changes step to step as the story moves. */
+  sceneData: z
+    .object({
+      label: z.string().min(1).max(28),
+      value: z.string().min(1).max(20).optional(),
+      tone: Tone.optional(),
+    })
+    .optional(),
 });
 
 export const DialogueLine = z.object({

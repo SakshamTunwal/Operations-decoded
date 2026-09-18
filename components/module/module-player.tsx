@@ -220,23 +220,15 @@ function ChoiceButton({ label, sub, state, onClick }: { label: string; sub?: str
   );
 }
 
-function DecisionView({ step }: { step: Extract<Payload, { type: "decision" }> }) {
-  const [chosen, setChosen] = useState<string | null>(null);
+function DecisionView({ step, chosen }: { step: Extract<Payload, { type: "decision" }>; chosen: string | null }) {
   const pick = step.choices.find((c) => c.id === chosen);
   return (
     <div>
-      <p style={{ fontFamily: serif, fontSize: 19, fontWeight: 600, margin: "0 0 14px" }}>{step.prompt}</p>
-      <div style={{ display: "grid", gap: 10 }}>
-        {step.choices.map((c) => (
-          <ChoiceButton
-            key={c.id}
-            label={c.label}
-            sub={c.implication}
-            state={chosen === c.id ? (c.correct ? "right" : "wrong") : "idle"}
-            onClick={() => setChosen(c.id)}
-          />
-        ))}
-      </div>
+      {!pick && (
+        <p style={{ fontSize: 14.5, color: T.inkSoft, margin: 0 }}>
+          ☝ Make the call in the scene above — the panel is waiting.
+        </p>
+      )}
       <AnimatePresence>
         {pick && (
           <motion.div key={pick.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={spring}>
@@ -567,11 +559,11 @@ function SummaryView({ step }: { step: Extract<Payload, { type: "summary" }> }) 
   );
 }
 
-function StepBody({ step, company }: { step: Step; company: Company }) {
+function StepBody({ step, company, decisionPick }: { step: Step; company: Company; decisionPick: string | null }) {
   const p = step.payload;
   switch (p.type) {
     case "dialogue": return <DialogueView step={p} company={company} />;
-    case "decision": return <DecisionView step={p} />;
+    case "decision": return <DecisionView step={p} chosen={decisionPick} />;
     case "compare": return <CompareView step={p} />;
     case "sequence": return <SequenceView step={p} />;
     case "form": return <FormView step={p} />;
@@ -588,6 +580,7 @@ function StepBody({ step, company }: { step: Step; company: Company }) {
 export default function ModulePlayer({ module: mod, company }: { module: Module; company: Company }) {
   const [idx, setIdx] = useState(0);
   const [dir, setDir] = useState(1);
+  const [picks, setPicks] = useState<Record<string, string>>({});
   const reduce = useReducedMotion();
   const step = mod.steps[idx];
   const go = (next: number) => {
@@ -610,7 +603,9 @@ export default function ModulePlayer({ module: mod, company }: { module: Module;
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap"
       />
       <main style={{ maxWidth: 860, margin: "0 auto", padding: "28px 20px 80px" }}>
-        <FactoryStage mod={mod} company={company} idx={idx} dir={dir} />
+        <FactoryStage mod={mod} company={company} idx={idx} dir={dir}
+          decisionPick={picks[step.id] ?? null}
+          onDecide={(choiceId) => setPicks({ ...picks, [step.id]: choiceId })} />
 
         {/* Header — the brass plaque */}
         <header style={{ marginBottom: 26 }}>
@@ -666,7 +661,7 @@ export default function ModulePlayer({ module: mod, company }: { module: Module;
             exit={reduce ? { opacity: 0 } : { opacity: 0, x: dir * -60 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            <StepBody step={step} company={company} />
+            <StepBody step={step} company={company} decisionPick={picks[step.id] ?? null} />
           </motion.section>
         </AnimatePresence>
 
